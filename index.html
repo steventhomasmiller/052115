@@ -1,0 +1,76 @@
+<!-- <!doctype html>
+<html>
+  <head>
+    <title>The Elvator</title>
+  </head>
+    <body>
+      <h1>Welcome to the Elvator</h1>
+      <div class="elevator"></div>
+        <script type="text/html"> <%=floor %></div>
+          <button class="operations" data-op="up">Up</button>
+          <button class="operations" data-op="down">Down</button>
+        </script>
+
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.0/backbone-min.js"></script>
+
+      -->
+
+        <script>
+
+        var Elevator = Backbone.Model.extend({
+          defaults: {
+            floor: 1,
+            dest: 1,
+            goingUp: true
+          },
+          move: function() {
+            var goingUp = this.get("dest");
+            var floor = this.get("floor");
+            if (floor < dest) {
+              floor++;
+            } else {
+              floor--;
+            }
+            if (floor == dest) {
+              this.set("dest", 1);
+            }
+            this.set("floor", floor);
+          }
+        });
+
+        var ElevatorView = Backbone.View.extend({
+          events: {
+            "click .floor": "changeFloor"
+
+          },
+          initialize: function() {
+            this.listenTo(this.model, "change", this.render)
+          },
+          changeFloor: function(e) {
+              var floor;
+              this.model.set("dest", floor)
+          }
+        });
+
+        var view = new ElevatorView({
+          model: Elevator;
+        });
+        view.render();
+
+      //   var checkElevator = function() {
+      //   elevator.addCommands();
+      //   elevator.move();
+      //   //schedule the next check
+      //   setTimeout(checkElevator, 1000);
+      // };
+      //
+      // //start the process
+      // checkElevator();
+
+
+        </script>
+
+    <!-- </body>
+</html> -->
